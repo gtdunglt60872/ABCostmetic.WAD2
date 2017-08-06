@@ -35,7 +35,8 @@ namespace WebApplication1
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css"/*,"~/Content/site.css"*/));
+                      "~/Content/bootstrap.css",
+                      "~/Content/site.css"));
 
             var initBundleStyle = new StyleBundle("~/Bundles/css")
                 .Include("~/Content/css/select2.min.css")

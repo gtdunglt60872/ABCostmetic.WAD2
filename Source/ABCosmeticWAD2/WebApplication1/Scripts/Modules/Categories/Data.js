@@ -59,12 +59,20 @@ var page = {
                         rules: {
                             categoryName: {
                                 required: true,
-                                minlength: 2
+                                minlength: 6
+                            },
+                            categoryDescription: {
+                                required: true,
+                                minlength: 6
                             }
                         },
                         messages: {
                             categoryName: {
-                                required: "We need your email address to contact you",
+                                required: "This field is required.",
+                                minlength: jQuery.validator.format("At least {0} characters required!")
+                            },
+                            categoryDescription: {
+                                required: "This field is required.",
                                 minlength: jQuery.validator.format("At least {0} characters required!")
                             }
                         }
