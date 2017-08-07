@@ -1,0 +1,81 @@
+﻿@using WebHelpers.Mvc5
+<aside class="main-sidebar">
+    <section class="sidebar">
+        @* BEGIN Search *@
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </form>
+        @* END Search *@
+        @* BEGIN Menu *@
+        <ul class="sidebar-menu">
+            <li class="header">HEADER</li>
+            <li class="@Url.IsLinkActive("Index", "Customers")">
+                <a href="@Url.Action("Index", "Customers")">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <span>Customers</span>
+                </a>
+            </li>
+            <li class="@Url.IsLinkActive("Index", "Orders")">
+                <a href="@Url.Action("Index", "Orders")">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <span>Order</span>
+                </a>
+            </li>
+            <li class="@Url.IsLinkActive("Index", "Products")">
+                <a href="@Url.Action("Index", "Products")">
+                    <i class="fa fa-product-hunt" aria-hidden="true"></i>
+                    <span>Products</span>
+                </a>
+            </li>
+            <li class="@Url.IsLinkActive("Index", "Suppliers")">
+                <a href="@Url.Action("Index", "Suppliers")">
+                    <i class="fa fa-building-o" aria-hidden="true"></i>
+                    <span>Suppliers</span>
+                </a>
+            </li>
+            <li class="@Url.IsLinkActive("Index", "Shippers")">
+                <a href="@Url.Action("Index", "Shippers")">
+                    <i class="fa fa-truck" aria-hidden="true"></i>
+                    <span>Shippers</span>
+                </a>
+            </li>
+            <li class="@Url.IsLinkActive("Index", "Categories")">
+                <a href="@Url.Action("Index", "Categories")">
+                    <i class="fa fa-list-alt"></i>
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-tachometer" aria-hidden="true"></i>
+                    <span>Admin</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="@Url.IsLinkActive("Index", "Reports")">
+                        <a href="@Url.Action("Index", "Reports")">
+                            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                            <span>Report</span>
+                        </a>
+                    </li>
+                    <li class="@Url.IsLinkActive("Index", "Employees")">
+                        <a href="@Url.Action("Index", "Employees")">
+                            <i class="fa fa-id-card" aria-hidden="true"></i>
+                            <span>Employee</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        @* END Menu *@
+    </section>
+</aside>

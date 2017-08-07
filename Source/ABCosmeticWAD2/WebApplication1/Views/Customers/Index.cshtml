@@ -1,0 +1,70 @@
+﻿@using System.Web.Optimization
+@{
+    ViewBag.Title = "Customers";
+    ViewBag.SubTitle = "Data";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <button class="btn btn-default btn-lg hover" id="new-category-btn">
+                    <i class="fa fa-plus-square"></i>
+                    <span>New Category</span>
+                </button>
+                <button class="btn btn-default btn-lg hover" id="refresh-btn" title="Refresh">
+                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="box-body">
+                <table id="example" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModal-label">New Category</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label class="control-label" for="category-name">Category Name: </label>
+                        <input type="text" class="form-control" id="category-name" placeholder="Min length 10 characters">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="category-description">Desctiption</label>
+                        <input type="email" class="form-control" id="category-description" placeholder="Descriptions">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger btn-sm" id="save-btn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Scripts.RenderFormat("<script src='{0}' defer></script>", "~/bundles/table");
+

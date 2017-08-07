@@ -1,0 +1,15 @@
+C:\Users\kidba\Documents\Visual Studio 2017\Projects\ABCosmeticWAD2\ABCostmeticWAD2.BAL\bin\Debug\ABCostmeticWAD2.BAL.exe.config
+C:\Users\kidba\Documents\Visual Studio 2017\Projects\ABCosmeticWAD2\ABCostmeticWAD2.BAL\bin\Debug\ABCostmeticWAD2.BAL.exe
+C:\Users\kidba\Documents\Visual Studio 2017\Projects\ABCosmeticWAD2\ABCostmeticWAD2.BAL\bin\Debug\ABCostmeticWAD2.BAL.pdb
+C:\Users\kidba\Documents\Visual Studio 2017\Projects\ABCosmeticWAD2\ABCostmeticWAD2.BAL\bin\Debug\ABCostmeticWAD2.DAL.exe
+C:\Users\kidba\Documents\Visual Studio 2017\Projects\ABCosmeticWAD2\ABCostmeticWAD2.BAL\bin\Debug\AutoMapper.dll
+C:\Users\kidba\Documents\Visual Studio 2017\Projects\ABCosmeticWAD2\ABCostmeticWAD2.BAL\bin\Debug\EntityFramework.dll
+C:\Users\kidba\Documents\Visual Studio 2017\Projects\ABCosmeticWAD2\ABCostmeticWAD2.BAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kidba\Documents\Visual Studio 2017\Projects\ABCosmeticWAD2\ABCostmeticWAD2.BAL\bin\Debug\ABCostmeticWAD2.DAL.pdb
+C:\Users\kidba\Documents\Visual Studio 2017\Projects\ABCosmeticWAD2\ABCostmeticWAD2.BAL\bin\Debug\ABCostmeticWAD2.DAL.exe.config
+C:\Users\kidba\Documents\Visual Studio 2017\Projects\ABCosmeticWAD2\ABCostmeticWAD2.BAL\bin\Debug\AutoMapper.xml
+C:\Users\kidba\Documents\Visual Studio 2017\Projects\ABCosmeticWAD2\ABCostmeticWAD2.BAL\bin\Debug\EntityFramework.xml
+C:\Users\kidba\Documents\Visual Studio 2017\Projects\ABCosmeticWAD2\ABCostmeticWAD2.BAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kidba\Documents\Visual Studio 2017\Projects\ABCosmeticWAD2\ABCostmeticWAD2.BAL\obj\Debug\ABCostmeticWAD2.BAL.csprojResolveAssemblyReference.cache
+C:\Users\kidba\Documents\Visual Studio 2017\Projects\ABCosmeticWAD2\ABCostmeticWAD2.BAL\obj\Debug\ABCostmeticWAD2.BAL.exe
+C:\Users\kidba\Documents\Visual Studio 2017\Projects\ABCosmeticWAD2\ABCostmeticWAD2.BAL\obj\Debug\ABCostmeticWAD2.BAL.pdb
