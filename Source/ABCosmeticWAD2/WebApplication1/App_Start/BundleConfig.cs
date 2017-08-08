@@ -15,6 +15,7 @@ namespace WebApplication1
         {
             return "~/Scripts/Modules/Categories/Data.js";
         }
+      
 
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
@@ -24,6 +25,12 @@ namespace WebApplication1
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryTmpl").Include(
+                "~/Scripts/jqueryTemplate/jquery.tmpl.js",
+                "~/Scripts/jqueryTemplate/jquery.tmpl.min.js",
+                "~/Scripts/jqueryTemplate/jquery.tmplPlus.js",
+                "~/Scripts/jqueryTemplate/jquery.tmplPlus.min.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.

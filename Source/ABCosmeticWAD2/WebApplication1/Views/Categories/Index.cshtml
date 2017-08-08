@@ -45,24 +45,57 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModal-label">New Category</h4>
             </div>
-            <div class="modal-body">
-                <form role="form" id="create-form">
-                    <div class="form-group">
-                        <label class="control-label" for="categoryName">Category Name: </label>
-                        <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="Min length 10 characters">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label" for="categoryDescription">Desctiption</label>
-                        <input type="text" class="form-control" id="categoryDescription" name="categoryDescription" placeholder="Descriptions">
-                    </div>
-                </form>
+            <div class="modal-body" id="modal-body">
+                
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger btn-sm" id="save-btn">Save</button>
+            <div class="modal-footer" id="modal-footer">
+               
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/x-jquery-tmpl" id="modal-body-template">
+    <form role="form" id="create-form">
+        <div class="form-group">
+            <label class="control-label" for="categoryName">Category Name: </label>
+            <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="Min length 10 characters">
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="categoryDescription">Desctiption</label>
+            <input type="text" class="form-control" id="categoryDescription" name="categoryDescription" placeholder="Descriptions">
+        </div>
+    </form>
+</script>
+
+<script type="text/x-jquery-tmpl" id="modal-body-edit-template">
+    <form role="form" id="edit-form">
+        <div class="form-group">
+            <label class="control-label" for="categoryName">Id: </label>
+            <input type="text" class="form-control" id="categoryId" value="${CategoryId}" name="CategoryId" disabled="disabled">
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="categoryName">Category Name: </label>
+            <input type="text" class="form-control" id="categoryName" value="${CategoryName}" name="categoryName" placeholder="Min length 10 characters">
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="categoryDescription">Desctiption</label>
+            <input type="text" class="form-control" id="categoryDescription" value="${Description}" name="categoryDescription" placeholder="Descriptions">
+        </div>
+    </form>
+</script>
+
+<script type="text/x-jquery-tmpl" id="modal-footer-template">
+    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-success btn-sm" id="save-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+</script>
+
+<script type="text/x-jquery-tmpl" id="modal-footer-edit-template">
+    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary btn-sm" id="edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+    <button type="button" class="btn btn-danger btn-sm" id="delete-btn"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+</script>
+
+
 
 @Scripts.RenderFormat("<script src='{0}' defer></script>", "~/bundles/table");
