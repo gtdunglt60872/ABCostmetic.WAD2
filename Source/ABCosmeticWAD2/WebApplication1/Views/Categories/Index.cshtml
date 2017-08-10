@@ -46,14 +46,40 @@
                 <h4 class="modal-title" id="myModal-label">New Category</h4>
             </div>
             <div class="modal-body" id="modal-body">
-                
+
             </div>
             <div class="modal-footer" id="modal-footer">
-               
+
             </div>
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="msg-modal" tabindex="-1" role="dialog" aria-labelledby="msg-modal-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="msg-modal-label">
+                    <i class="fa fa-warning"></i>
+                    <span>
+                        Warning
+                    </span>
+                </h4>
+            </div>
+            <div class="modal-body" id="msg-modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/x-jquery-tmpl" id="msg-modal-body-template">
+    ${Msg}
+</script>
 
 <script type="text/x-jquery-tmpl" id="modal-body-template">
     <form role="form" id="create-form">

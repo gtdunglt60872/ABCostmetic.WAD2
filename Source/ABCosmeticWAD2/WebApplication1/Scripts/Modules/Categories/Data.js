@@ -48,7 +48,9 @@ var page = {
 
                 // Set data for table
                 page.Tables.Opt.data = resp.ListData;
-
+                if (page.Tables.Opt.aaData) {
+                    page.Tables.Opt.aaData = resp.ListData;
+                }
                 // Draw table
                 page.Tables.Table();
             });
@@ -61,6 +63,7 @@ var page = {
         ModalFooterEditTmpl: $("#modal-footer-edit-template")
     },
     Modal: {
+        ModalMsg: $('#msg-modal'),
         ModalElement: $('#myModal'),
         ModalBody: $("#modal-body"),
         ModalFooter: $("#modal-footer"),
@@ -68,7 +71,7 @@ var page = {
         EditButton: $('#edit-btn'),
         DeleteButton: $('#delete-btn'),
         FormCreate: 'create-form',
-        FormEdit:'edit-form',
+        FormEdit: 'edit-form',
         Show: function (data) {
             page.Modal.Init(data);
             page.Modal.ModalElement.modal('show');
@@ -76,22 +79,83 @@ var page = {
         SaveButtonInit: function () {
             page.Modal.ModalFooter.on('click', '#save-btn',
                 function () {
-                    page.Modal.FormValidate(page.Modal.FormCreate);
-                    // Refresh table datasource
-                    // Reinitialization table
-                    //page.Tables.HandleData();
+                    var formValid = page.Modal.Form.Validate(page.Modal.FormCreate);
+
+                    if (formValid) {
+                        var formData = page.Modal.Form.GetFormData();
+                        $.ajax({
+                            type: "POST",
+                            url: "/Categories/Create",
+                            data: formData,
+                            dataType: "json",
+                            async: false,
+                            success: function (resp) {
+                                if (resp.Msg === 'Success') {
+                                    page.Modal.ModalElement.modal('hide');
+                                    // Refresh table datasource
+                                    // Reinitialization table
+                                    page.Tables.HandleData();
+                                } else {
+                                    $("#msg-modal-body").empty();
+                                    $('#msg-modal-body-template').tmpl(resp).appendTo("#msg-modal-body");
+                                    page.Modal.ModalMsg.modal('show');
+                                }
+                            }
+                        });
+                    }
                 });
         },
         EditButtonInit: function () {
             page.Modal.ModalFooter.delegate('#edit-btn', 'click',
                 function () {
-                    page.Modal.FormValidate(page.Modal.FormEdit);
+                    var formValid = page.Modal.Form.Validate(page.Modal.FormEdit);
+                    if (formValid) {
+                        var formData = page.Modal.Form.GetFormData();
+                        $.ajax({
+                            type: "POST",
+                            url: "/Categories/Edit",
+                            data: formData,
+                            dataType: "json",
+                            async: false,
+                            success: function (resp) {
+                                if (resp.Msg === 'Success') {
+                                    page.Modal.ModalElement.modal('hide');
+                                    // Refresh table datasource
+                                    // Reinitialization table
+                                    page.Tables.HandleData();
+                                } else {
+                                    $("#msg-modal-body").empty();
+                                    $('#msg-modal-body-template').tmpl(resp).appendTo("#msg-modal-body");
+                                    page.Modal.ModalMsg.modal('show');
+                                }
+                            }
+                        });
+                    }
                 });
         },
         DeleteButtonInit: function () {
             page.Modal.ModalFooter.delegate('#delete-btn', 'click',
                 function () {
-                    page.Modal.FormValidate(page.Modal.FormEdit);
+                    var formData = page.Modal.Form.GetFormData();
+                    $.ajax({
+                        type: "POST",
+                        url: "/Categories/Delete",
+                        data: { id: formData.CategoryId },
+                        dataType: "json",
+                        async: false,
+                        success: function (resp) {
+                            if (resp.Msg === 'Success') {
+                                page.Modal.ModalElement.modal('hide');
+                                // Refresh table datasource
+                                // Reinitialization table
+                                page.Tables.HandleData();
+                            } else {
+                                $("#msg-modal-body").empty();
+                                $('#msg-modal-body-template').tmpl(resp).appendTo("#msg-modal-body");
+                                page.Modal.ModalMsg.modal('show');
+                            }
+                        }
+                    });
                 });
         },
         Init: function (data) {
@@ -115,30 +179,43 @@ var page = {
                 page.Modal.SaveButtonInit();
             }
         },
-        FormValidate: function (form) {
-            $("#" + form).validate({
-                rules: {
-                    categoryName: {
-                        required: true,
-                        minlength: 6
+        Form: {
+            Validate: function (form) {
+                $("#" + form).validate({
+                    rules: {
+                        categoryName: {
+                            required: true,
+                            minlength: 6,
+                            maxlength: 15
+                        },
+                        categoryDescription: {
+                            required: true,
+                            minlength: 6
+                        }
                     },
-                    categoryDescription: {
-                        required: true,
-                        minlength: 6
+                    messages: {
+                        categoryName: {
+                            required: "This field is required.",
+                            minlength: jQuery.validator.format("At least {0} characters required!")
+                        },
+                        categoryDescription: {
+                            required: "This field is required.",
+                            minlength: jQuery.validator.format("At least {0} characters required!"),
+                            maxlength: jQuery.validator.format("Maximum {0} characters!")
+                        }
                     }
-                },
-                messages: {
-                    categoryName: {
-                        required: "This field is required.",
-                        minlength: jQuery.validator.format("At least {0} characters required!")
-                    },
-                    categoryDescription: {
-                        required: "This field is required.",
-                        minlength: jQuery.validator.format("At least {0} characters required!")
-                    }
+                });
+                return $("#" + form).valid();
+            },
+            GetFormData: function () {
+                var formData = {
+                    CategoryId: $('#categoryId').val(),
+                    CategoryName: $('#categoryName').val(),
+                    Description: $('#categoryDescription').val()
                 }
-            });
-            $("#" + form).valid();
+
+                return formData;
+            }
         }
     },
     Init: {

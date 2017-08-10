@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using ABCostmeticWAD2.BAL;
 using ABCostmeticWAD2.BAL.DTO;
 using ABCostmeticWAD2.BAL.Interfaces;
@@ -16,12 +17,69 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public ActionResult Create(CategoryModel model)
-        //{
+        [HttpPost]
+        public ActionResult Create(CategoryModel model)
+        {
+            var res = new BaseResponse();
+            if (model == null || string.IsNullOrEmpty(model.CategoryName) || string.IsNullOrEmpty(model.CategoryName))
+            {
+                res.Msg = Constants.MsgFail;
+                return Json(res, JsonRequestBehavior.AllowGet);
+            }
 
-        //    return Json(new{},JsonRequestBehavior.AllowGet)
-        //}
+            try
+            {
+                _categoryService.Add(model);
+                return Json(res, JsonRequestBehavior.AllowGet);
+            }
+            catch
+            {
+                res.Msg = Constants.MsgFail;
+                return Json(res, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Edit(CategoryModel model)
+        {
+            var res = new BaseResponse();
+            if (model == null || string.IsNullOrEmpty(model.CategoryName) || string.IsNullOrEmpty(model.CategoryName))
+            {
+                res.Msg = Constants.MsgFail;
+                return Json(res, JsonRequestBehavior.AllowGet);
+            }
+            try
+            {
+                _categoryService.Update(model);
+                return Json(res, JsonRequestBehavior.AllowGet);
+            }
+            catch
+            {
+                res.Msg = "Cannot edit this item!";
+                return Json(res, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            var res = new BaseResponse();
+            if (id == 0)
+            {
+                res.Msg = Constants.MsgFail;
+                return Json(res, JsonRequestBehavior.AllowGet);
+            }
+            try
+            {
+                _categoryService.Delete(id);
+                return Json(res, JsonRequestBehavior.AllowGet);
+            }
+            catch(Exception ex)
+            {
+                res.Msg = "Cannot delete this item!";
+                return Json(res, JsonRequestBehavior.AllowGet);
+            }
+        }
 
         [HttpPost]
         public ActionResult ListData()
