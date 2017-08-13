@@ -13,7 +13,7 @@ namespace ABCostmeticWAD2.BAL.Interfaces
 
         void Update(T obj);
 
-        void Delete(int id);
+        void Delete(T obj);
 
         void Add(T obj);
     }

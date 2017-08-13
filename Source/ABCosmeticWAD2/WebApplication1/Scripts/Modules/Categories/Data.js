@@ -78,7 +78,8 @@ var page = {
         },
         SaveButtonInit: function () {
             page.Modal.ModalFooter.on('click', '#save-btn',
-                function () {
+                function (e) {
+                    e.stopImmediatePropagation();
                     var formValid = page.Modal.Form.Validate(page.Modal.FormCreate);
 
                     if (formValid) {
@@ -92,6 +93,11 @@ var page = {
                             success: function (resp) {
                                 if (resp.Msg === 'Success') {
                                     page.Modal.ModalElement.modal('hide');
+
+                                    $("#msg-modal-body").empty();
+                                    $('#msg-modal-body-template').tmpl(resp).appendTo("#msg-modal-body");
+                                    page.Modal.ModalMsg.modal('show');
+
                                     // Refresh table datasource
                                     // Reinitialization table
                                     page.Tables.HandleData();
@@ -107,7 +113,8 @@ var page = {
         },
         EditButtonInit: function () {
             page.Modal.ModalFooter.delegate('#edit-btn', 'click',
-                function () {
+                function (e) {
+                    e.stopImmediatePropagation();
                     var formValid = page.Modal.Form.Validate(page.Modal.FormEdit);
                     if (formValid) {
                         var formData = page.Modal.Form.GetFormData();
@@ -120,6 +127,11 @@ var page = {
                             success: function (resp) {
                                 if (resp.Msg === 'Success') {
                                     page.Modal.ModalElement.modal('hide');
+
+                                    $("#msg-modal-body").empty();
+                                    $('#msg-modal-body-template').tmpl(resp).appendTo("#msg-modal-body");
+                                    page.Modal.ModalMsg.modal('show');
+
                                     // Refresh table datasource
                                     // Reinitialization table
                                     page.Tables.HandleData();
@@ -135,7 +147,8 @@ var page = {
         },
         DeleteButtonInit: function () {
             page.Modal.ModalFooter.delegate('#delete-btn', 'click',
-                function () {
+                function (e) {
+                    e.stopImmediatePropagation();
                     var formData = page.Modal.Form.GetFormData();
                     $.ajax({
                         type: "POST",
@@ -146,6 +159,11 @@ var page = {
                         success: function (resp) {
                             if (resp.Msg === 'Success') {
                                 page.Modal.ModalElement.modal('hide');
+
+                                $("#msg-modal-body").empty();
+                                $('#msg-modal-body-template').tmpl(resp).appendTo("#msg-modal-body");
+                                page.Modal.ModalMsg.modal('show');
+
                                 // Refresh table datasource
                                 // Reinitialization table
                                 page.Tables.HandleData();
@@ -156,6 +174,7 @@ var page = {
                             }
                         }
                     });
+                    
                 });
         },
         Init: function (data) {

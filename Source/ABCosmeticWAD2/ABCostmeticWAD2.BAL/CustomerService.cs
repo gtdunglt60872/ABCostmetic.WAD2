@@ -63,16 +63,13 @@ namespace ABCostmeticWAD2.BAL
             _customerRepository.Save();
         }
 
-        public void Delete(int id)
+        public void Delete(CustomerModel obj)
         {
-            if (id == 0)
-            {
-                return;
-            }
-            var customerModel = this.GetByKey(id);
-            var customer = Mapper.Map<CustomerModel, Customer>(customerModel);
+            if (obj == null) return;
+
+            var customer = Mapper.Map<CustomerModel, Customer>(obj);
+
             _customerRepository.Delete(customer);
-            _customerRepository.Save();
         }
 
         public void Add(CustomerModel obj)

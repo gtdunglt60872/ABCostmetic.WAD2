@@ -63,16 +63,13 @@ namespace ABCostmeticWAD2.BAL
             _categoryRepository.Save();
         }
 
-        public void Delete(int id)
+        public void Delete(CategoryModel obj)
         {
-            if (id == 0)
-            {
-                return;
-            }
-            var categoryModal = this.GetByKey(id);
-            var category = Mapper.Map<CategoryModel, Category>(categoryModal);
+            if (obj == null) return;
+
+            var category = Mapper.Map<CategoryModel, Category>(obj);
+
             _categoryRepository.Delete(category);
-            _categoryRepository.Save();
         }
 
         public void Add(CategoryModel obj)

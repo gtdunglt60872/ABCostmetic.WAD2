@@ -71,7 +71,8 @@ namespace WebApplication1.Controllers
             }
             try
             {
-                _categoryService.Delete(id);
+                var model = _categoryService.GetByKey(id);
+                _categoryService.Delete(model);
                 return Json(res, JsonRequestBehavior.AllowGet);
             }
             catch(Exception ex)

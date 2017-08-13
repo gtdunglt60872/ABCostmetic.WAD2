@@ -33,7 +33,15 @@ namespace ABCostmeticWAD2.DAL
 
         public void Delete(T entity)
         {
-            Context.Set<T>().Remove(entity);
+            using (Context= new TC())
+            {
+                if (Context.Entry(entity).State == EntityState.Detached)
+                {
+                    Context.Set<T>().Attach(entity);
+                }
+                Context.Set<T>().Remove(entity);
+                Context.SaveChanges();
+            }
         }
 
         public void Edit(T entity)
