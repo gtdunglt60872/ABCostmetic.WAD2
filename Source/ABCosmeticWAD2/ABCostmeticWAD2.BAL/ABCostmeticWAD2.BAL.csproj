@@ -55,11 +55,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MembershipSevice.cs" />
     <Compile Include="CustomerService.cs" />
     <Compile Include="CategoryService.cs" />
     <Compile Include="DTO\CategoryModel.cs" />
     <Compile Include="DTO\CustomerModel.cs" />
     <Compile Include="DTO\EmployeeModel.cs" />
+    <Compile Include="DTO\MembershipModel.cs" />
     <Compile Include="DTO\OrderDetailModel.cs" />
     <Compile Include="DTO\OrderModel.cs" />
     <Compile Include="DTO\ProductModel.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="DTO\TitleLookupModel.cs" />
     <Compile Include="DTO\SupplierModel.cs" />
     <Compile Include="Helpers.cs" />
+    <Compile Include="Interfaces\IMembershipService.cs" />
     <Compile Include="Interfaces\ITitleLookupService.cs" />
     <Compile Include="Interfaces\ICustomerService.cs" />
     <Compile Include="Interfaces\IOrderService.cs" />
