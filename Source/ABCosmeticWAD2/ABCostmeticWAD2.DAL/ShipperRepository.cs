@@ -8,7 +8,7 @@ using ABCostmeticWAD2.DAL.Interfaces;
 
 namespace ABCostmeticWAD2.DAL
 {
-    public class ShipperRepository : RepositoryBase<ABCostmetic_WAD2Entities, Shipper>, IShipperRepository
+    public class ShipperRepository : RepositoryBase<ABCostmeticWADEntities, Shipper>, IShipperRepository
     {
 
     }

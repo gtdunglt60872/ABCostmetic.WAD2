@@ -52,6 +52,57 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerRepository.cs" />
+    <Compile Include="EntityModels\ABCostmeticModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ABCostmeticModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\ABCostmeticModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ABCostmeticModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\ABCostmeticModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ABCostmeticModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Category.cs">
+      <DependentUpon>ABCostmeticModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Customer.cs">
+      <DependentUpon>ABCostmeticModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Employee.cs">
+      <DependentUpon>ABCostmeticModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Membership.cs">
+      <DependentUpon>ABCostmeticModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Order.cs">
+      <DependentUpon>ABCostmeticModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Order_Detail.cs">
+      <DependentUpon>ABCostmeticModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Product.cs">
+      <DependentUpon>ABCostmeticModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Shipper.cs">
+      <DependentUpon>ABCostmeticModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Store.cs">
+      <DependentUpon>ABCostmeticModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\StoreStructure.cs">
+      <DependentUpon>ABCostmeticModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Supplier.cs">
+      <DependentUpon>ABCostmeticModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\TitleLookup.cs">
+      <DependentUpon>ABCostmeticModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="OrderRepository.cs" />
     <Compile Include="OrderDetailRepository.cs" />
     <Compile Include="ProductRepository.cs" />
@@ -59,54 +110,6 @@
     <Compile Include="SupplierRepository.cs" />
     <Compile Include="StoreRepository.cs" />
     <Compile Include="TitleLookupRepository.cs" />
-    <Compile Include="EntityModels\ABCModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ABCModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModels\ABCModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ABCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModels\ABCModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ABCModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModels\Category.cs">
-      <DependentUpon>ABCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModels\Customer.cs">
-      <DependentUpon>ABCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModels\Employee.cs">
-      <DependentUpon>ABCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModels\Order.cs">
-      <DependentUpon>ABCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModels\Order_Detail.cs">
-      <DependentUpon>ABCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModels\Product.cs">
-      <DependentUpon>ABCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModels\Shipper.cs">
-      <DependentUpon>ABCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModels\Store.cs">
-      <DependentUpon>ABCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModels\StoreStructure.cs">
-      <DependentUpon>ABCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModels\Supplier.cs">
-      <DependentUpon>ABCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModels\TitleLookup.cs">
-      <DependentUpon>ABCModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="CategoryRepository.cs" />
     <Compile Include="Interfaces\ITitleLookupRepository.cs" />
     <Compile Include="Interfaces\IStoreRepository.cs" />
@@ -127,30 +130,30 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="EntityModels\ABCModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ABCModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="ClassDiagram1.cd" />
-    <None Include="EntityModels\ABCModel.edmx.diagram">
-      <DependentUpon>ABCModel.edmx</DependentUpon>
+    <EntityDeploy Include="EntityModels\ABCostmeticModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ABCostmeticModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EntityModels\ABCostmeticModel.edmx.diagram">
+      <DependentUpon>ABCostmeticModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EntityModels\ABCModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ABCModel.Context.cs</LastGenOutput>
-      <DependentUpon>ABCModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="EntityModels\ABCModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ABCModel.edmx</DependentUpon>
-      <LastGenOutput>ABCModel.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="EntityModels\ABCostmeticModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ABCostmeticModel.edmx</DependentUpon>
+      <LastGenOutput>ABCostmeticModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityModels\ABCostmeticModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ABCostmeticModel.edmx</DependentUpon>
+      <LastGenOutput>ABCostmeticModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

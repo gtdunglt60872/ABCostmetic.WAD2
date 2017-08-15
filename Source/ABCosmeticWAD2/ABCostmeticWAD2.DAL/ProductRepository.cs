@@ -8,7 +8,7 @@ using ABCostmeticWAD2.DAL.Interfaces;
 
 namespace ABCostmeticWAD2.DAL
 {
-    public class ProductRepository : RepositoryBase<ABCostmetic_WAD2Entities, Product>, IProductRepository
+    public class ProductRepository : RepositoryBase<ABCostmeticWADEntities, Product>, IProductRepository
     {
 
     }

@@ -8,7 +8,7 @@ using ABCostmeticWAD2.DAL.Interfaces;
 
 namespace ABCostmeticWAD2.DAL
 {
-    public class TitleLookupRepository : RepositoryBase<ABCostmetic_WAD2Entities, TitleLookup>, ITitleLookupRepository
+    public class TitleLookupRepository : RepositoryBase<ABCostmeticWADEntities, TitleLookup>, ITitleLookupRepository
     {
 
     }

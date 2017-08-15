@@ -12,14 +12,13 @@ namespace ABCostmeticWAD2.DAL.EntityModels
     using System;
     using System.Collections.Generic;
     
-    public partial class StoreStructure
+    public partial class Membership
     {
-        public string Id { get; set; }
-        public int StoreId { get; set; }
-        public string Role { get; set; }
-        public Nullable<int> EmployeeId { get; set; }
+        public int Id { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public int EmployeeId { get; set; }
     
         public virtual Employee Employee { get; set; }
-        public virtual Store Store { get; set; }
     }
 }
