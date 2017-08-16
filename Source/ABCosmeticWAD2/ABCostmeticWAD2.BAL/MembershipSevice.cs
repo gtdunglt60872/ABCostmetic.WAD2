@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Runtime;
 using AutoMapper;
@@ -15,9 +16,11 @@ namespace ABCostmeticWAD2.BAL
     public class MembershipSevice : IMembershipService
     {
         private readonly IMembershipRepository _membershipRepository;
+        private readonly IStoreStructureRepository _storeStructureRepository;
 
         public MembershipSevice()
         {
+            _storeStructureRepository = _storeStructureRepository ?? new StoreStructureRepository();
             _membershipRepository = _membershipRepository ?? new MembershipRepository();
 
             Mapper.Initialize(cfg =>
@@ -90,6 +93,17 @@ namespace ABCostmeticWAD2.BAL
             var obj = _membershipRepository.FindBy(x => x.UserName == username && x.Password == password).FirstOrDefault();
             var model = Mapper.Map<Membership, MembershipModel>(obj);
             return model;
+        }
+
+        public string GetUserRole(int emplId)
+        {
+            if (emplId == 0)
+            {
+                return string.Empty;
+            }
+
+            var obj = _storeStructureRepository.FindBy(x => x.Employee.EmployeeID == emplId).FirstOrDefault();
+            return obj?.Role;
         }
     }
 }

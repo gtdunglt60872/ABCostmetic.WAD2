@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IStoreStructureRepository.cs" />
     <Compile Include="MembershipRepository.cs" />
     <Compile Include="CustomerRepository.cs" />
     <Compile Include="EntityModels\ABCostmeticModel.Context.cs">
@@ -109,6 +110,7 @@
     <Compile Include="OrderDetailRepository.cs" />
     <Compile Include="ProductRepository.cs" />
     <Compile Include="ShipperRepository.cs" />
+    <Compile Include="StoreStructureRepository.cs" />
     <Compile Include="SupplierRepository.cs" />
     <Compile Include="StoreRepository.cs" />
     <Compile Include="TitleLookupRepository.cs" />

@@ -10,5 +10,6 @@ namespace ABCostmeticWAD2.BAL.Interfaces
     public interface IMembershipService : IServices<MembershipModel>
     {
         MembershipModel Login(string username, string password);
+        string GetUserRole(int emplId);
     }
 }
