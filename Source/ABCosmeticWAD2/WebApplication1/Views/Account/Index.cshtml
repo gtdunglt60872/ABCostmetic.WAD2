@@ -23,11 +23,11 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="@Url.Action("Home", "Index")">Welcome to <b>WebApplication!</b></a>
+            <a href="@Url.Action("Index", "Home")"><b>ABCostmetic!</b></a>
         </div>
         <div class="login-box-body">
             <p class="login-box-msg">Sign in to start your session</p>
-            @using (Html.BeginForm("Login", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+            @using (Html.BeginForm("Index", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
             {
                 if (ViewBag.ErrorMsg!=null)
                 {
@@ -46,6 +46,9 @@
                     @Html.PasswordFor(m => m.Password, new { @class = "form-control", type = "password", placeholder = "Password" })
                     @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div>
+                    <button type="submit" id="btn-login" class="btn btn-success btn-block">Login</button>
                 </div>
             }
         </div>

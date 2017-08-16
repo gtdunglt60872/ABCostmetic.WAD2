@@ -21,6 +21,12 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/jqueryTmpl")
+        @Scripts.Render("~/Bundles/js")
         @Html.Partial("_Header")
         @Html.Partial("_Sidebar")
         <div class="content-wrapper">
@@ -38,11 +44,6 @@
     </div>
     <script src="@RouteJs.RouteJsHandler.HandlerUrl"></script>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/jqueryTmpl")
-    @Scripts.Render("~/Bundles/js")
     @RenderSection("scripts", required: false)
 </body>
 </html>

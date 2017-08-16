@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmployeeRepository.cs" />
     <Compile Include="Interfaces\IStoreStructureRepository.cs" />
     <Compile Include="MembershipRepository.cs" />
     <Compile Include="CustomerRepository.cs" />

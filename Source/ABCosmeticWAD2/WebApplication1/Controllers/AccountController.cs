@@ -10,7 +10,7 @@ using ABCostmeticWAD2.BAL.Interfaces;
 
 namespace WebApplication1.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private readonly IMembershipService _membershipService = new MembershipSevice();
 
@@ -27,6 +27,7 @@ namespace WebApplication1.Controllers
             var user = _membershipService.Login(model.UserName, model.Password);
             if (user != null)
             {
+                EmployeeDto = _membershipService.GetUserInfo(user.EmployeeId);
                 var userRole = _membershipService.GetUserRole(user.EmployeeId);
                 FormsAuthentication.SetAuthCookie(user.EmployeeId.ToString(), true);
 
@@ -42,12 +43,18 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        [HttpPost]
         [Authorize]
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public ActionResult GetUserInfo()
+        {
+            var info = EmployeeDto;
+            return Json(info, JsonRequestBehavior.AllowGet);
         }
     }
 }

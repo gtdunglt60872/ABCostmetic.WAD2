@@ -17,9 +17,13 @@ namespace ABCostmeticWAD2.BAL
     {
         private readonly IMembershipRepository _membershipRepository;
         private readonly IStoreStructureRepository _storeStructureRepository;
+        private readonly IEmployeeRepository _employeeRepository;
+        private readonly IStoreRepository _storeRepository;
 
         public MembershipSevice()
         {
+            _storeRepository = _storeRepository ?? new StoreRepository();
+            _employeeRepository = _employeeRepository ?? new EmployeeRepository();
             _storeStructureRepository = _storeStructureRepository ?? new StoreStructureRepository();
             _membershipRepository = _membershipRepository ?? new MembershipRepository();
 
@@ -95,6 +99,11 @@ namespace ABCostmeticWAD2.BAL
             return model;
         }
 
+        /// <summary>
+        /// Get user roles for authorize
+        /// </summary>
+        /// <param name="emplId">Employee Identity number</param>
+        /// <returns>Employee's role</returns>
         public string GetUserRole(int emplId)
         {
             if (emplId == 0)
@@ -104,6 +113,45 @@ namespace ABCostmeticWAD2.BAL
 
             var obj = _storeStructureRepository.FindBy(x => x.Employee.EmployeeID == emplId).FirstOrDefault();
             return obj?.Role;
+        }
+
+        /// <summary>
+        /// Get employee information with custom field
+        /// </summary>
+        /// <param name="emplId">Employee Identity number</param>
+        /// <returns></returns>
+        public EmployeeDto GetUserInfo(int emplId)
+        {
+            if (emplId == 0)
+            {
+                return null;
+            }
+
+            var obj = _employeeRepository.FindBy(x => x.EmployeeID == emplId).FirstOrDefault();
+            if (obj == null)
+            {
+                return null;
+            }
+
+            var res = new EmployeeDto
+            {
+                FirstName = obj.FirstName,
+                LastName = obj.LastName,
+                Address = obj.Address,
+                BirthDate = obj.BirthDate,
+                City = obj.City,
+                HireDate = obj.HireDate,
+                Title = obj.TitleLookup.Name,
+                Role = GetUserRole(obj.EmployeeID)
+            };
+
+            var storeStructure = _storeStructureRepository.FindBy(x => x.EmployeeId == obj.EmployeeID).FirstOrDefault();
+            if (storeStructure != null)
+            {
+                res.Store = storeStructure.Store;
+            }
+
+            return res;
         }
     }
 }
