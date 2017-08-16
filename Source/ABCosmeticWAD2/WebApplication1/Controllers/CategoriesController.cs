@@ -7,16 +7,19 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
+    [Authorize]
     public class CategoriesController : Controller
     {
         private readonly ICategoryService _categoryService = new CategoryService();
 
+        [Authorize(Roles = "Manager")]
         // GET: Category
         public ActionResult Index()
         {
             return View();
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpPost]
         public ActionResult Create(CategoryModel model)
         {
@@ -39,6 +42,7 @@ namespace WebApplication1.Controllers
             }
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpPost]
         public ActionResult Edit(CategoryModel model)
         {
@@ -60,6 +64,7 @@ namespace WebApplication1.Controllers
             }
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpPost]
         public ActionResult Delete(int id)
         {
@@ -82,6 +87,7 @@ namespace WebApplication1.Controllers
             }
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpPost]
         public ActionResult ListData()
         {
